@@ -3,8 +3,10 @@ import request from "../utils/request"
 export const testcalendar = data => {
   return request({
     method: 'POST',
-    url: '/api/calendar/test',
-    data
+    url: '/systemTest',
+    data,
+    contentType: "application/json;charset=UTF-8",
+    dataType:"json",
   })
 }
 

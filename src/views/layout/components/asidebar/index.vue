@@ -3,7 +3,7 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#545c64"
+      background-color="#0C73B2"
       text-color="#fff"
       active-text-color="#ffd04b"
       :collapse="isCollapse"
@@ -13,13 +13,22 @@
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>课程练习</span>
+          <span>代码练习</span>
         </template>
         <el-menu-item-group>
           <el-menu-item index="/cash">电信收费问题</el-menu-item>
           <el-menu-item index="/calendar">万年历问题</el-menu-item>
           <el-menu-item index="/triangle">判断三角形</el-menu-item>
           <el-menu-item index="/sales">电脑销售系统</el-menu-item>
+        </el-menu-item-group>
+
+      </el-submenu>
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>讨论问题</span>
+        </template>
+        <el-menu-item-group>
           <el-menu-item index="/two">第2题：销售管理系统</el-menu-item>
           <el-menu-item index="/four">第4题：讨论</el-menu-item>
           <el-menu-item index="/seven">第7题：实时系统</el-menu-item>
@@ -30,6 +39,22 @@
           <el-menu-item index="/thirteen">第13题：销售系统</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
+
+      <el-submenu index="3">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>项目测试</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="/two">单元测试</el-menu-item>
+          <el-menu-item index="/four">集成测试</el-menu-item>
+          <el-menu-item index="/seven">回归测试</el-menu-item>
+          <el-menu-item index="/nine">系统测试</el-menu-item>
+        
+        </el-menu-item-group>
+      </el-submenu>
+
+      
       <!-- <el-menu-item index="2">
         <i class="el-icon-menu"></i>
         <span slot="title">导航二</span>

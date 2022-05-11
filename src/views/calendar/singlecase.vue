@@ -15,7 +15,7 @@
       <el-form-item label="天数">
         <el-input v-model="formLabelAlign.day"></el-input>
       </el-form-item>
-      <el-form-item label="每月的电话总费用预期输出">
+      <el-form-item label="预期输出">
         <el-input v-model="formLabelAlign.expectation"></el-input>
       </el-form-item>
     </el-form>
@@ -76,9 +76,9 @@ export default {
       let data = {
         calendar_test_list:[formdata],
       }
-      testcalendar(data).then((res)=>{
-        this.actual = res.data.test_result[0].actual;
-        this.info = res.data.test_result[0].info;
+      testcalendar(JSON.stringify(data.calendar_test_list)).then((res)=>{
+        this.actual = res.data[0].actual;
+        this.info = res.data[0].info;
       })
 
     }
