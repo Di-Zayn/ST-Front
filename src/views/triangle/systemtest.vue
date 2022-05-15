@@ -306,7 +306,7 @@ export default {
     },
 
 
-    //上传文件时处理方法
+
     handleChange(file){
       this.fileTemp = file.raw;
       if(this.fileTemp){
