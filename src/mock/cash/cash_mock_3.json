@@ -1,82 +1,12 @@
-[
-  {
-    "id": "TS1",
-    "year": 2021,
-    "month": 5,
-    "X": 30,
-    "Y": 1,
-    "expectation": 29.455
-  },
-  {
-    "id": "TS2",
-    "year": 2021,
-    "month": 5,
-    "X": 30,
-    "Y": 2,
-    "expectation": 29.5
-  },
-  {
-    "id": "TS3",
-    "year": 2021,
-    "month": 5,
-    "X": 100,
-    "Y": 2,
-    "expectation": 39.775
-  },
-  {
-    "id": "TS4",
-    "year": 2021,
-    "month": 5,
-    "X": 100,
-    "Y": 3,
-    "expectation": 40
-  },
-  {
-    "id": "TS5",
-    "year": 2021,
-    "month": 5,
-    "X": 150,
-    "Y": 3,
-    "expectation": 47.05
-  },
-  {
-    "id": "TS6",
-    "year": 2021,
-    "month": 5,
-    "X": 150,
-    "Y": 4,
-    "expectation": 47.5
-  },
-  {
-    "id": "TS7",
-    "year": 2021,
-    "month": 5,
-    "X": 240,
-    "Y": 3,
-    "expectation": 60.1
-  },
-  {
-    "id": "TS8",
-    "year": 2021,
-    "month": 5,
-    "X": 240,
-    "Y": 4,
-    "expectation": 61
-  },
-  {
-    "id": "TS9",
-    "year": 2021,
-    "month": 5,
-    "X": 320,
-    "Y": 6,
-    "expectation": 71.56
-  },
-  {
-    "id": "TS10",
-    "year": 2021,
-    "month": 5,
-    "X": 320,
-    "Y": 8,
-    "expectation": 73
-  }
-]
+[{"id":"1","year":"2022","month":"5","num":"0","time":"50","expectedOutput":"32.42"},
+  {"id":"2","year":"2021","month":"11","num":"2","time":"30","expectedOutput":"29.5"},
+  {"id":"3","year":"2020","month":"5","num":"2","time":"80","expectedOutput":"36.82"},
+  {"id":"4","year":"2022","month":"6","num":"4","time":"90","expectedOutput":"38.5"},
+  {"id":"5","year":"2022","month":"4","num":"3","time":"170","expectedOutput":"49.99"},
+  {"id":"6","year":"2010","month":"12","num":"8","time":"150","expectedOutput":"47.5"},
+  {"id":"7","year":"2018","month":"3","num":"1","time":"300","expectedOutput":"68.88"},
+  {"id":"8","year":"2021","month":"9","num":"5","time":"270","expectedOutput":"65.5"},
+  {"id":"9","year":"2022","month":"7","num":"6","time":"320","expectedOutput":"71.56"},
+  {"id":"10","year":"2005","month":"12","num":"10","time":"350","expectedOutput":"77.5"},
+  {"id":"11","year":"2022","month":"5","num":"0","time":"50000","expectedOutput":"-1"},
+  {"id":"12","year":"2022","month":"1","num":"1","time":"200","expectedOutput":"-1"}]
