@@ -6,11 +6,11 @@
       label-width="400px"
       :model="formLabelAlign"
     >
-      <el-form-item label="本月的通话分钟数X（分钟）">
-        <el-input v-model="formLabelAlign.X"></el-input>
+      <el-form-item label="本月的通话分钟数（分钟）">
+        <el-input v-model="formLabelAlign.time"></el-input>
       </el-form-item>
-      <el-form-item label="本年度至本月的累计未按时缴费的次数Y（次）">
-        <el-input v-model="formLabelAlign.Y"></el-input>
+      <el-form-item label="本年度至本月的累计未按时缴费的次数（次）">
+        <el-input v-model="formLabelAlign.num"></el-input>
       </el-form-item>
       <el-form-item label="月份">
         <el-date-picker v-model="date" type="month" placeholder="选择月"
@@ -18,7 +18,7 @@
         </el-date-picker>
       </el-form-item>
       <el-form-item label="每月的电话总费用预期输出">
-        <el-input v-model="formLabelAlign.expectation"></el-input>
+        <el-input v-model="formLabelAlign.expectedOutput"></el-input>
       </el-form-item>
     </el-form>
           <el-button
@@ -34,6 +34,8 @@
     <el-divider direction="vertical"></el-divider>
     <span>运行信息：{{info}}</span>
     <el-divider direction="vertical"></el-divider>
+    <span>测试结果：{{result}}</span>
+          <el-divider direction="vertical"></el-divider>
   </div>
   </div>
 </template>
@@ -48,11 +50,12 @@ export default {
     return {
       actual:"",
       info:"",
+      result:"",
       labelPosition: 'right',
         formLabelAlign: {
-          X: 0,
-          Y: 0,
-          expectation: 0
+          time: 0,
+          num: 0,
+          expectedOutput: 0
         }, 
         date:"",
         loading:false,
@@ -69,18 +72,23 @@ export default {
         id:"TS1",
         year:this.date.split("-")[0],
         month:this.date.split("-")[1],
-        X:this.formLabelAlign.X,
-        Y:this.formLabelAlign.Y,
-        expectation:this.formLabelAlign.expectation,
+        time:this.formLabelAlign.time,
+        num:this.formLabelAlign.num,
+        expectedOutput:this.formLabelAlign.expectedOutput,
       }
+      console.log(formdata)
       let data = {
         cash_test_list:[formdata],
       }
-      testcash(data).then((res)=>{
-        this.actual = res.data.test_result[0].actual;
-        this.info = res.data.test_result[0].info;
+      console.log(JSON.stringify(data.cash_test_list))
 
+      testcash(JSON.stringify(data.cash_test_list)).then((res)=>{
+                console.log(res)
+        this.actual = res.data.result_list[0].actualOutput;
+        this.info = res.data.result_list[0].info;
+        this.result = res.data.result_list[0].testResult;
       }).catch((err)=>{
+        console.log(err)
         this.$message.err("Server Error");
       })
 

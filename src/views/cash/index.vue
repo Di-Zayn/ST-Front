@@ -16,9 +16,6 @@
           <SingleCase />
         </el-tab-pane>
 
-<!--        <el-tab-pane label="测试用例文件处理" name="fourth">-->
-<!--          <ExcelFile />-->
-<!--        </el-tab-pane>-->
 
         <el-tab-pane label="缺陷版本记录" name="fifth">
           <BugRecord  :parentHeight="parentHeight"/>
@@ -34,7 +31,6 @@
 import CashQuestion from "./question";
 import SystemTest from "./systemtest";
 import SingleCase from "./singlecase";
-import ExcelFile from "./excelfile";
 import BugRecord from "./bug";
 
 export default {
@@ -43,7 +39,6 @@ export default {
     CashQuestion,
     SystemTest,
     SingleCase,
-    ExcelFile,
     BugRecord
   },
   props: {},
