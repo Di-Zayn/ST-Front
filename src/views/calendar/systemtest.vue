@@ -56,7 +56,7 @@
               <el-col :span="18"><div id="pie" style="width: 400px;height: 250px;"></div></el-col>
               <el-col :span="6">
                 <div id="testtime"> 运行时间:100ms</div>
-                <div id="rate"> 测试成功率: {{this.rate}}</div></el-col>
+                <div id="rate"> 测试成功率: {{this.rate}}%</div></el-col>
             </el-row>
             <el-divider content-position="right">错误用例</el-divider>
             <div class="error_info_table">
@@ -208,6 +208,7 @@
 <script>
 import mock_1_json from "@/mock/calendar/calendar_mock_1.json";
 import mock_2_json from "@/mock/calendar/calendar_mock_2.json";
+import mock_3_json from "@/mock/calendar/calendar_mock_3.json";
 import { testcalendar } from "@/api/calendartest.js";
 import xlsx from 'xlsx';
 import * as echarts from 'echarts';
@@ -218,9 +219,10 @@ export default {
   data() {
     return {
       options: [
-        { value: "1", label: "健壮边界值分析" },
-        { value: "2", label: "强健壮等价类测试" },
-        { value: "3", label: "导入文件测试" },
+        { value: "1", label: "边界值分析" },
+        { value: "2", label: "等价类测试" },
+        { value: "3", label: "决策表测试" },
+        { value: "4", label: "导入文件测试" },
       ],
       value: "1",
       tableData: [],
@@ -452,6 +454,10 @@ export default {
         newData = {
           calendar_test_list: mock_2_json,
         };
+      } else if(this.value==="3"){
+        newData = {
+          calendar_test_list: mock_3_json,
+        };
       }
       else
       {
@@ -472,6 +478,7 @@ export default {
           this.error_info=res.data.error_info
           console.log(this.error_info)
           this.rate=res.data.pieData[0].value/(res.data.pieData[0].value+res.data.pieData[1].value).toFixed(2)
+          this.rate=res.rate*100
           _this.tableData.forEach((item, index) => {
             let responseObject = res.data.result_list[index];
             //实际运行结果
@@ -507,8 +514,11 @@ export default {
         this.initTableData(mock_1_json);
       } else if (value === "2") {
         this.initTableData(mock_2_json);
-      } else {
-        this.initTableData(mock_2_json);
+      } else if (value === "3") {
+        this.initTableData(mock_3_json);
+      }
+      else {
+        this.initTableData(mock_1_json);
       }
     },
   },

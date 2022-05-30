@@ -19,7 +19,7 @@
         <el-input v-model="formLabelAlign.expectation"></el-input>
       </el-form-item>
     </el-form>
-          <el-button
+      <el-button
         class="main-button"
         type="success"
         plain
@@ -27,11 +27,10 @@
         :loading="loading"
         >进行测试<i class="el-icon-upload el-icon--right"></i
       ></el-button>
-        <div>
-    <span>实际输出：{{actual}}</span>
-    <el-divider direction="vertical"></el-divider>
-    <span>运行信息：{{info}}</span>
-    <el-divider direction="vertical"></el-divider>
+  <div>
+    <div class="actualInput">实际输出：{{actual}}</div>
+    
+    <div class="result">运行信息：{{info}}</div>
   </div>
   </div>
 </template>
@@ -77,8 +76,9 @@ export default {
         calendar_test_list:[formdata],
       }
       testcalendar(JSON.stringify(data.calendar_test_list)).then((res)=>{
-        this.actual = res.data[0].actual;
-        this.info = res.data[0].info;
+        console.log(res.data)
+        this.actual = res.data.result_list[0].actual;
+        this.info = res.data.result_list[0].test_result;
       })
 
     }
@@ -113,4 +113,17 @@ export default {
   top:50%;
   left:50%;
 }
+.actualInput{
+  left:-200px;
+  text-align: center; 
+  position: relative;
+  margin-top: 10px;
+}
+.result{
+  left:-200px;
+  text-align: center; 
+  position: relative;
+  margin-top: 10px;
+}
+
 </style>

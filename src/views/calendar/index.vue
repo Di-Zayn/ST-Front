@@ -14,9 +14,9 @@
           <SingleCase />
         </el-tab-pane>
 
-        <el-tab-pane label="测试用例文件处理" name="fourth">
+        <!-- <el-tab-pane label="测试用例文件处理" name="fourth">
           <ExcelFile />
-        </el-tab-pane>
+        </el-tab-pane> -->
 
         <el-tab-pane label="缺陷版本记录" name="fifth">
           <BugRecord :parentHeight="parentHeight" />
