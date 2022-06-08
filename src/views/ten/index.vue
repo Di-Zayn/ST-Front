@@ -6,6 +6,19 @@
         <el-tab-pane label="问题描述" name="first">
           <SalesQuestion />
         </el-tab-pane>
+        <el-tab-pane label="基本流和备选流" name="second">
+          <FlowDesign />
+        </el-tab-pane>
+        <el-tab-pane label="流图" name="third">
+          <FlowDiagram />
+        </el-tab-pane>
+
+        <el-tab-pane label="场景设计" name="fourth">
+          <Scene />
+        </el-tab-pane>
+        <el-tab-pane label="用例设计" name="fifth">
+          <Case />
+        </el-tab-pane>
 
 
       </el-tabs>
@@ -23,9 +36,14 @@
 <script>
 
 import SalesQuestion from "./question";
+import FlowDesign from "./flowdesign";
+import FlowDiagram from "./flowdiagram";
+import Scene from "./scene";
+import Case from "./case"
+
 export default {
   name: "ten",
-  components: { SalesQuestion },
+  components: { SalesQuestion,FlowDesign,FlowDiagram,Scene,Case},
   props: {},
   data() {
     return {

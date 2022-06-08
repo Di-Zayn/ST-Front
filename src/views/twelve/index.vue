@@ -6,6 +6,9 @@
         <el-tab-pane label="问题描述" name="first">
           <SalesQuestion />
         </el-tab-pane>
+        <el-tab-pane label="控制流图" name="second">
+          <Answer />
+        </el-tab-pane>
 
 
       </el-tabs>
@@ -23,9 +26,10 @@
 <script>
 
 import SalesQuestion from "./question";
+import Answer from "./answer"
 export default {
   name: "twelve",
-  components: { SalesQuestion },
+  components: { SalesQuestion ,Answer},
   props: {},
   data() {
     return {
