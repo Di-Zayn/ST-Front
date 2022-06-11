@@ -471,6 +471,7 @@ export default {
       console.log(newData)
       const _this = this;
       this.loading = true;
+      console.log(newData.calendar_test_list);
       testcalendar(JSON.stringify(newData.calendar_test_list))
         .then((res) => {
           this.pieData=res.data.pieData

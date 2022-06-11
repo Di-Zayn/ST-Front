@@ -142,18 +142,18 @@
             align="center"
         ></el-table-column>
         <el-table-column
-            prop="X"
+            prop="telTime"
             label="本月的通话分钟数X（分钟）"
             width="240"
             align="center"
         ></el-table-column>
         <el-table-column
-            prop="Y"
+            prop="delayPayTimes"
             label="本年度至本月的累计未按时缴费的次数Y（次）"
             align="center"
         ></el-table-column>
         <el-table-column
-            prop="expectation"
+            prop="expectedResult"
             label="每月的电话总费用预期输出"
             align="center"
         ></el-table-column>
@@ -201,10 +201,10 @@ export default {
   data() {
     return {
       options: [
-        {value: "1",label: "健壮性边界值法",},
-        {value: "2",label: "强健壮等价类测试",},
-        {value: "3",label: "扩展条目决策表生成测试用例",},
-        {value: "4",label: "综合最优用例",},
+        { value: "1", label: "边界值分析" },
+        { value: "2", label: "等价类测试" },
+        { value: "3", label: "决策表测试" },
+        { value: "4", label: "导入文件测试" },
       ],
       value: "1",
       tableData: [],
@@ -252,14 +252,16 @@ export default {
       json.forEach((element) => {
         let newData = {};
         for (let key in element) {
-          if(key != "X" || key != "Y"){
-            newData[key] = element[key];
-          }
+          // if(key != "X" || key != "Y"){
+          //
+          // }
+          newData[key] = element[key];
         }
         newData["actual"] = "";
         newData["info"] = "";
         newData["state"] = null;
         this.tableData.push(newData);
+        console.log(this.tableData)
       });
     },
     tableRowClassName({ row, rowIndex }) {
@@ -369,16 +371,16 @@ export default {
         this.data.map(v => {
           const obj = { }
           obj.id = v.id
-          obj.X = v.telTime
-          obj.Y =v.delayPayTimes
-          obj.expectation=v.expectedResult
-          console.log(obj.id);
+          obj.telTime = v.telTime
+          obj.delayPayTimes =v.delayPayTimes
+          obj.expectedResult=v.expectedResult
+          // console.log(obj.id);
           this.tableData = [];
           obj["actual"] = "";
           obj["info"] = "";
           obj["state"] = null;
           arr.push(obj)
-          console.log(arr)
+          // console.log(arr)
         })
         _this.tableData = arr
         console.log(this.tableData)
@@ -399,23 +401,20 @@ export default {
         newData = {
           cash_test_list: mock_3_json,
         };
-      } else if(this.value==="4"){
+      }
+      else {
         newData = {
-          cash_test_list: mock_4_json,
+          cash_test_list: this.tableData,
         };
       }
-      else
-      {
-        newData = {
-          calendar_test_list: this.tableData,
-        };
-      }
+      console.log("=======")
       console.log(typeof newData.cash_test_list);
       //newData=JSON.stringify(newData);
       console.log(typeof newData)
       console.log(newData)
       const _this = this;
       this.loading = true;
+      console.log(newData.cash_test_list);
       testcash(JSON.stringify(newData.cash_test_list))
           .then(
               res => {

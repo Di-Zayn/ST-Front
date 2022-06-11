@@ -1,16 +1,15 @@
 [
-    {"id": "1","year":2021,"month":5,"time": -1,"num": 5,"expectedOutput":-1},
-    {"id": "2","year":2021,"month":5,"time": 0,"num": 5,"expectedOutput":25},
-    {"id": "3","year":2021,"month":5,"time": 10,"num": 5,"expectedOutput":26.5},
-    {"id": "4","year":2021,"month":5,"time": 44600,"num": 5,"expectedOutput":6514.3},
-    {"id": "5","year":2021,"month":5,"time": 44640,"num": 5,"expectedOutput":6520.12},
-    {"id": "6","year":2021,"month":5,"time": 44700,"num": 5,"expectedOutput":-1},
-    {"id": "7","year":2021,"month":5,"time": 5000,"num": -1,"expectedOutput":-1},
-    {"id": "8","year":2021,"month":5,"time": 5000,"num": 0,"expectedOutput":752.5},
-    {"id": "9","year":2021,"month":5,"time": 5000,"num": 1,"expectedOutput":752.5},
-    {"id": "10","year":2021,"month":5,"time": 5000,"num": 10,"expectedOutput":775},
-    {"id": "11","year":2021,"month":5,"time": 5000,"num": 11,"expectedOutput":775},
-    {"id": "12","year":2021,"month":5,"time": 5000,"num": 12,"expectedOutput":-1},
-    {"id": "13","year":2021,"month":5,"time": 5000,"num": 5,"expectedOutput":752.5}
-
+    {"id": "1","telTime":300,"delayPayTimes":-1,"expectedResult":"INVALID DELAYTIMES"},
+    {"id": "2","telTime":300,"delayPayTimes":0,"expectedResult":68.875},
+    {"id": "3","telTime":300,"delayPayTimes":1,"expectedResult":68.875},
+    {"id": "4","telTime":300,"delayPayTimes":6,"expectedResult":70},
+    {"id": "5","telTime":300,"delayPayTimes":10,"expectedResult":70},
+    {"id": "6","telTime":300,"delayPayTimes":11,"expectedResult":70},
+    {"id": "7","telTime":300,"delayPayTimes":12,"expectedResult":"INVALID DELAYTIMES"},
+    {"id": "8","telTime":-1,"delayPayTimes":6,"expectedResult":"INVALID TELTIME"},
+    {"id": "9","telTime":0,"delayPayTimes":6,"expectedResult":25},
+    {"id": "10","telTime":1,"delayPayTimes":6,"expectedResult":25.15},
+    {"id": "11","telTime":44600,"delayPayTimes":6,"expectedResult":6514.3},
+    {"id": "12","telTime":44640,"delayPayTimes":6,"expectedResult":"INVALID TELTIME"},
+    {"id": "13","telTime":44700,"delayPayTimes":6,"expectedResult":"INVALID TELTIME"}
 ]
