@@ -354,6 +354,7 @@ export default {
           binary += String.fromCharCode(bytes[i])
         }
         // const XLSX = require('xlsx')
+
         console.log("onload");
         const wb = XLSX.read(binary, {
           type: 'binary'
@@ -369,6 +370,7 @@ export default {
           obj.delayPayTimes =v.delayPayTimes
           obj.expectedResult=v.expectedResult
           // console.log(obj.id);
+
           this.tableData = [];
           obj["actual"] = "";
           obj["info"] = "";
@@ -381,6 +383,7 @@ export default {
         this.isopened=false;
       }
     },
+
     doTest() {
       let newData = {};
       if (this.value === "1") {
