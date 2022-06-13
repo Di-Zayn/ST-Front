@@ -16,7 +16,7 @@
   {"id": "15","telTime":120,"delayPayTimes":-1,"expectedResult":"INVALID DELAYTIMES"},
   {"id": "16","telTime":120,"delayPayTimes":0,"expectedResult":42.73},
   {"id": "17","telTime":120,"delayPayTimes":2,"expectedResult":42.73},
-  {"id": "18","telTime":120,"delayPayTimes":3,"expectedResult":42.73},
+  {"id": "18","telTime":120,"delayPayTimes":3,"expectedResult":43.0},
   {"id": "19","telTime":120,"delayPayTimes":6,"expectedResult":43.0},
   {"id": "20","telTime":120,"delayPayTimes":11,"expectedResult":43.0},
   {"id": "21","telTime":120,"delayPayTimes":12,"expectedResult":"INVALID DELAYTIMES"},

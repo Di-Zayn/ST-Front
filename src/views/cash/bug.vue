@@ -9,7 +9,7 @@
           :value="item.value"
         />
       </el-select>
-      <div class="data-text">测试中日期取2021年5月（共31天）</div>
+<!--      <div class="data-text">测试中日期取2021年5月（共31天）</div>-->
       <div class="button-group">
         <el-button
           class="main-button"
@@ -47,18 +47,18 @@
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="X"
+          prop="telTime"
           label="本月的通话分钟数X（分钟）"
           width="240"
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="Y"
+          prop="delayPayTimes"
           label="本年度至本月的累计未按时缴费的次数Y（次）"
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="expectation"
+          prop="expectedResult"
           label="每月的电话总费用预期输出"
           align="center"
         ></el-table-column>
@@ -103,7 +103,7 @@ export default {
   data() {
     return {
       options: [
-        { value: "1", label: "bug_v1_无法处理负数请求" },
+        { value: "1", label: "bug_v1_结果为四位小数" },
         { value: "2", label: "bug_v2_无法处理非数字请求" },
       ],
       value: "1",
@@ -138,15 +138,17 @@ export default {
       this.tableData = [];
       json.forEach((element) => {
         let newData = {};
-        for (let key in element) {
-          if (key != "year" || key != "month") {
+        json.forEach((element) => {
+          let newData = {};
+          for (let key in element) {
             newData[key] = element[key];
           }
-        }
-        newData["actual"] = "";
-        newData["info"] = "";
-        newData["state"] = null;
-        this.tableData.push(newData);
+          newData["actual"] = "";
+          newData["info"] = "";
+          newData["state"] = null;
+          this.tableData.push(newData);
+          console.log(this.tableData)
+        });
       });
     },
     tableRowClassName({ row, rowIndex }) {

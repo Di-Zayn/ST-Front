@@ -12,11 +12,11 @@
       <el-form-item label="本年度至本月的累计未按时缴费的次数（次）">
         <el-input v-model="formLabelAlign.num"></el-input>
       </el-form-item>
-      <el-form-item label="月份">
-        <el-date-picker v-model="date" type="month" placeholder="选择月"
-        value-format="yyyy-MM" >
-        </el-date-picker>
-      </el-form-item>
+<!--      <el-form-item label="月份">-->
+<!--        <el-date-picker v-model="date" type="month" placeholder="选择月"-->
+<!--        value-format="yyyy-MM" >-->
+<!--        </el-date-picker>-->
+<!--      </el-form-item>-->
       <el-form-item label="每月的电话总费用预期输出">
         <el-input v-model="formLabelAlign.expectedOutput"></el-input>
       </el-form-item>
@@ -56,7 +56,7 @@ export default {
           time: 0,
           num: 0,
           expectedOutput: 0
-        }, 
+        },
         date:"",
         loading:false,
 
@@ -70,11 +70,9 @@ export default {
     doTest(){
       let formdata = {
         id:"TS1",
-        year:this.date.split("-")[0],
-        month:this.date.split("-")[1],
-        time:this.formLabelAlign.time,
-        num:this.formLabelAlign.num,
-        expectedOutput:this.formLabelAlign.expectedOutput,
+        telTime:this.formLabelAlign.time,
+        delayPayTimes:this.formLabelAlign.num,
+        expectedResult:this.formLabelAlign.expectedOutput,
       }
       console.log(formdata)
       let data = {

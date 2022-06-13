@@ -8,7 +8,7 @@
             :label="item.label"
             :value="item.value"/>
       </el-select>
-      <div class="data-text">日期取2021年5月（共31天）</div>
+<!--      <div class="data-text">日期取2021年5月（共31天）</div>-->
       <div class="button-group">
         <el-button
             @click="openUploadDialog"
@@ -72,25 +72,19 @@
                   align="center"
               ></el-table-column>
               <el-table-column
-                  prop="year"
-                  label="年份"
-                  width="100"
+                  prop="telTime"
+                  label="通话分钟数"
+                  width="120"
                   align="center"
               ></el-table-column>
               <el-table-column
-                  prop="month"
-                  width="100"
-                  label="月份"
+                  prop="delayPayTimes"
+                  label="累计未按时缴费的次数"
+                  width="120"
                   align="center"
               ></el-table-column>
               <el-table-column
-                  prop="day"
-                  width="100"
-                  label="天"
-                  align="center"
-              ></el-table-column>
-              <el-table-column
-                  prop="expectation"
+                  prop="expectedResult"
                   label="预期输出"
                   align="center"
               ></el-table-column>
@@ -220,7 +214,7 @@ export default {
   },
   computed: {
     tableHeight(){
-      return 430;
+      return 465;
     }
   },
   watch: {
@@ -418,6 +412,7 @@ export default {
       testcash(JSON.stringify(newData.cash_test_list))
           .then(
               res => {
+                console.log(res)
                 this.pieData=res.data.pieData
                 console.log(this.pieData)
                 this.error_info=res.data.error_info
@@ -426,14 +421,15 @@ export default {
                 this.rate=res.rate*100
                 _this.tableData.forEach((item, index) => {
                   let responseObject = res.data.result_list[index];
-                  item.actual = responseObject.actual;
+                  item.actual = responseObject.actualOutput;
                   item.info = responseObject.info;
-                  item.state = responseObject.test_result == "测试通过" ? true : false;
-                  item.time = responseObject.test_time;
+                  item.state = responseObject.testResult == "Success" ? true : false;
+                  item.time = responseObject.testTime;
                   _this.classState[index] = item["state"]
                       ? "success-row"
                       : "error-row";
                 });
+                console.log(_this.tableData)
                 this.$message({
                   message: '测试成功',
                   type: 'success'

@@ -111,7 +111,7 @@
           </div> -->
 
         </el-dialog>
-        
+
         <el-button
             class="main-button"
             type="success"
@@ -230,7 +230,7 @@ export default {
   },
   computed: {
     tableHeight(){
-      return (this.parentHeight - 260) > 650 ? 650 : (this.parentHeight - 260);
+      return 420;
     }
   },
   watch: {
@@ -306,7 +306,7 @@ export default {
     },
 
 
-    //上传文件时处理方法  
+    //上传文件时处理方法
     handleChange(file){
       this.fileTemp = file.raw;
       if(this.fileTemp){
@@ -345,7 +345,7 @@ export default {
 
           binary += String.fromCharCode(bytes[i])
         }
-        
+
         console.log("onload");
         const wb = XLSX.read(binary, {
           type: 'binary'
@@ -380,7 +380,7 @@ export default {
         this.isopened=false;
       }
     },
-   
+
     open3() {
       this.$notify({
         title: '成功',

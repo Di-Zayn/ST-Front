@@ -3,7 +3,7 @@ import request from "../utils/request"
 export const testcash = data => {
     return request({
         method: 'POST',
-        url: '/cash/systemTest',
+        url: '/charge/systemTest',
         data,
         contentType: "application/json;charset=UTF-8",
         dataType:"json",
