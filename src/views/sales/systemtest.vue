@@ -9,7 +9,109 @@
           :value="item.value"
         />
       </el-select>
+
       <div class="button-group">
+                <el-button
+            @click="openUploadDialog"
+            icon="el-icon-upload"
+            class="reset-button"
+            plain
+        >导入文件</el-button
+        >
+        <!-- :on-change="handleChange" -->
+        <el-dialog  :visible.sync="isopened" width="400px" append-to-body>
+          <div style="margin-bottom:10px">
+            格式要求：只支持xls文件，文件第一行依次是用例序号，销售的主机、显示器、外设数量，期望输出。
+            第二行开始正式数据。
+          </div>
+          <el-upload ref="upload" :limit="1" accept=".xlsx,.xls"
+                     action=""
+                     :on-change="handleChange"
+                     :on-exceed="handleExceed"
+                     :auto-upload="false" drag>
+            <i class="el-icon-upload" />
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            <div slot="tip" class="el-upload__tip" style="color:#ff0000">提示：请注意上述格式要求
+
+            </div>
+          </el-upload>
+          <div slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="isopened=false">确 定</el-button>
+            <el-button @click="isopened=false">取 消</el-button>
+          </div>
+        </el-dialog>
+
+        <el-button
+            @click="reportDialog=true"
+            class="reset-button"
+            plain
+        >查看报告
+        </el-button>
+
+        <el-dialog  title="测试报告"  :visible.sync="reportDialog" width="700px" height="500px" append-to-body  @open="openReportDialog()">
+          <el-row>
+            <el-col :span="18"><div id="pie" style="width: 400px;height: 250px;"></div></el-col>
+            <el-col :span="6">
+              <div id="testtime"> 运行时间:100ms</div>
+              <div id="rate"> 测试成功率: {{this.rate}}</div></el-col>
+          </el-row>
+          <el-divider content-position="right">错误用例</el-divider>
+          <div class="error_info_table">
+            <el-table
+                :data="error_info"
+                :height="tableHeight"
+                border
+                style="width: 100%"
+                v-loading="loading"
+                :row-class-name="tableRowClassName"
+            >
+              <el-table-column
+                  prop="id"
+                  label="测试用例编号"
+                  width="120"
+                  align="center"
+              ></el-table-column>
+              <el-table-column
+                  prop="mainUnit"
+                  label="销售的主机数量M（台）"
+                  width="100"
+                  align="center"
+              ></el-table-column>
+              <el-table-column
+                  prop="screen"
+                  width="100"
+                  label="销售的显示器数量I（台）"
+                  align="center"
+              ></el-table-column>
+              <el-table-column
+                  prop="perpheral"
+                  width="100"
+                  label="销售的外设数量P（套"
+                  align="center"
+              ></el-table-column>
+              <el-table-column
+                  prop="expectedOutput"
+                  label="预期输出"
+                  align="center"
+              ></el-table-column>
+              <el-table-column
+                  prop="actualOutput"
+                  label="实际输出"
+                  align="center"
+              ></el-table-column>
+
+            </el-table>
+          </div>
+          <!-- <div>
+            <div id="pie" style="width: 400px;height: 300px;">
+            </div>
+            <div>
+              运行时间
+            </div>
+          </div> -->
+
+        </el-dialog>
+
         <el-button
           class="main-button"
           type="success"
@@ -46,50 +148,60 @@
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="M"
+          prop="mainUnit"
           label="销售的主机数量M（台）"
           width="240"
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="I"
+          prop="screen"
           label="销售的显示器数量I（台）"
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="P"
+          prop="perpheral"
           label="销售的外设数量P（套）"
           align="center"
         ></el-table-column>
-        <el-table-column
+        <!-- <el-table-column
           prop="predict"
           label="预计状态"
           align="center"
-        ></el-table-column>
-        <el-table-column
+        ></el-table-column> -->
+        <!-- <el-table-column
           prop="pre_amount"
           label="预计销售额"
           align="center"
-        ></el-table-column>
+        ></el-table-column> -->
         <el-table-column
-          prop="pre_earn"
-          label="预计佣金"
+          prop="expectedOutput"
+          label="预计输出"
           align="center"
         ></el-table-column>
         <el-table-column
+          prop="actualOutput"
+          label="实际输出"
+          align="center"
+        ></el-table-column>
+        <!-- <el-table-column
           prop="S"
           label="实际状态"
           align="center"
-        ></el-table-column>
-        <el-table-column
+        ></el-table-column> -->
+        <!-- <el-table-column
           prop="A"
           label="实际销售额"
           align="center"
-        ></el-table-column>
-        <el-table-column
+        ></el-table-column> -->
+        <!-- <el-table-column
           prop="E"
-          label="实际佣金"
+          label="实际输出"
           align="center"
+        ></el-table-column> -->
+        <el-table-column
+            prop="info"
+            label="程序运行信息"
+            align="center"
         ></el-table-column>
         <el-table-column prop="state" label="测试结果" align="center">
           <template slot-scope="scope">
@@ -112,8 +224,9 @@
 </template>
 
 <script>
-import mock_1_json from "@/mock/sales/sales_mock.json";
-import { testsales } from "@/api/salestest.js";
+import mock_1_json from "@/mock/sales/sales_mock1.json";
+import * as echarts from 'echarts';
+import { testsales } from "../../api/salestest.js";
 export default {
   name: "SystemTest",
   components: {},
@@ -125,6 +238,11 @@ export default {
       tableData: [],
       loading: false,
       classState: [],
+      isopened:false,
+      reportDialog:false,
+      pieData:[],
+      error_info:[],
+      rate:1.0
     };
   },
   computed: {
@@ -145,6 +263,141 @@ export default {
     this.initTableData(mock_1_json);
   },
   methods: {
+    openUploadDialog(){
+      this.isopened=true;
+    },
+    openReportDialog(){
+      this.$nextTick(() => {
+        //  执行echarts方法
+        this.draw()
+      })
+    },
+    draw(){
+      var chartDom = document.getElementById('pie');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '40',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            data: this.pieData,
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    },
+        //上传文件时处理方法  
+    handleChange(file){
+      this.fileTemp = file.raw;
+      if(this.fileTemp){
+        console.log("yes")
+        this.importfile(this.fileTemp);
+      } else {
+        this.$message({
+          type:'warning',
+          message:'请上传附件！'
+        })
+      }
+    },
+    //超出最大上传文件数量时的处理方法
+    handleExceed(){
+      this.$message({
+        type:'warning',
+        message:'超出最大上传文件数量的限制！'
+      })
+      return;
+    },
+    importfile (obj) {
+      console.log(obj);
+      console.log(this.tableData)
+      const reader = new FileReader()
+      const _this = this
+      reader.readAsArrayBuffer(obj)
+
+      reader.onload = function () {
+
+        const buffer = reader.result
+        const bytes = new Uint8Array(buffer)
+        const length = bytes.byteLength
+        let binary = ''
+
+        for (let i = 0; i < length; i++) {
+
+          binary += String.fromCharCode(bytes[i])
+        }
+        
+        console.log("onload");
+        const wb = XLSX.read(binary, {
+          type: 'binary'
+        })
+        console.log("onload");
+
+        const outdata = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
+        this.data = [...outdata]
+        const arr = []
+        this.data.map(v => {
+
+          const obj = { }
+
+          obj.id = v.id
+          obj.mainUnit = v.mainUnit
+          obj.screen=v.screen
+          obj.perpheral=v.perpheral
+          obj.expectedOutput=v.expectedOutput
+
+          console.log(obj.id);
+          this.tableData = [];
+          obj["actualOutput"] = "";
+          obj["info"] = "";
+          obj["state"] = null;
+
+
+          arr.push(obj)
+          console.log(arr)
+        })
+        _this.tableData = arr
+        console.log(this.tableData)
+        this.isopened=false;
+      }
+    },
+    open3() {
+      this.$notify({
+        title: '成功',
+        message: '这是一条成功的提示消息',
+        type: 'success'
+      });
+    },
     initTableData(json) {
       this.classState = [];
       this.tableData = [];
@@ -153,9 +406,10 @@ export default {
         for (let key in element) {
           newData[key] = element[key];
         }
-        newData["A"] = "";
-        newData["S"] = "";
-        newData["E"] = "";
+        // newData["A"] = "";
+        // newData["S"] = "";
+        newData["actualOutput"] = "";
+        newData["info"] = "";
         newData["state"] = null;
         this.tableData.push(newData);
       });
@@ -169,15 +423,33 @@ export default {
       };
       const _this = this;
       this.loading = true;
-      testsales(newData)
+      // testsales(newData)
+      testsales(JSON.stringify(newData.sales_test_list))
         .then((res) => {
-          _this.tableData.forEach((item, index) => {
-            let responseObject = res.data.test_result[index];
-            item.A = responseObject.amount;
-            item.S = responseObject.actual;
-            item.E = responseObject.earn;
-            item.state = item.A == item.pre_amount ? true : false;
-            item.time = responseObject.test_time;
+          console.log(res)
+           this.pieData=res.data.pieData
+            console.log(this.pieData)
+            this.error_info=res.data.error_info
+            console.log(this.error_info)
+            this.rate=res.data.pieData[0].value/(res.data.pieData[0].value+res.data.pieData[1].value).toFixed(2)
+
+           _this.tableData.forEach((item, index) => {
+            // let responseObject = res.data.test_result[index];
+            let responseObject = res.data.result_list[index];
+            // // item.A = responseObject.amount;
+            // // item.S = responseObject.actual;
+            // item.E = responseObject.earn;
+            // // item.state = item.A == item.pre_amount ? true : false;
+            // item.time = responseObject.test_time;
+            //实际运行结果
+              item.actualOutput = responseObject.actualOutput;
+              //程序运行信息
+              item.info = responseObject.info;
+              //测试结果 true或false
+              item.state =
+                  responseObject.testResult === "Pass";
+              //测试时间
+              item.time = responseObject.testTime;
             _this.classState[index] = item["state"]
               ? "success-row"
               : "error-row";
@@ -190,6 +462,7 @@ export default {
         })
         .catch((err) => {
           _this.$message.error("Server Error");
+           console.log(err)
           _this.loading = false;
         });
     },
@@ -216,8 +489,28 @@ export default {
 /deep/ .el-table .success-row {
   background-color: #f7fff9;
 }
+#pie{
+  position: relative;
+  height: -20px;
+  left:-80px;
+}
+#testtime{
+  position: relative;
+  top: 80px;
+  left:-150px;
+  width: 200px;
+  font-size: 18px;
+}
+#rate{
+  position: relative;
+  top: 80px;
+  left:-150px;
+  width: 200px;
+  margin-top:10px;
+  font-size: 18px;
+}
 .main-button {
-  width: 500px;
+  width: 200px;
   margin-top: 10px;
 }
 .reset-button {
@@ -234,5 +527,6 @@ export default {
   height: 100%;
   display: flex;
   align-items: center;
+  overflow:auto
 }
 </style>

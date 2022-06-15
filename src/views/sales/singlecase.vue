@@ -7,22 +7,22 @@
       :model="formLabelAlign"
     >
       <el-form-item label="销售的主机数量M（台）">
-        <el-input v-model="formLabelAlign.M"></el-input>
+        <el-input v-model="formLabelAlign.mainUnit"></el-input>
       </el-form-item>
       <el-form-item label="销售的显示器数量I（台）">
-        <el-input v-model="formLabelAlign.I"></el-input>
+        <el-input v-model="formLabelAlign.screen"></el-input>
       </el-form-item>
       <el-form-item label="销售的外设数量P（套）">
-        <el-input v-model="formLabelAlign.P"></el-input>
+        <el-input v-model="formLabelAlign.perpheral"></el-input>
       </el-form-item>
-      <el-form-item label="预计状态（正常/错误）">
+      <!-- <el-form-item label="预计状态（正常/错误）">
         <el-input v-model="formLabelAlign.predict"></el-input>
       </el-form-item>
       <el-form-item label="预计销售额（元）">
         <el-input v-model="formLabelAlign.pre_amount"></el-input>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="预计佣金（元）">
-        <el-input v-model="formLabelAlign.pre_earn"></el-input>
+        <el-input v-model="formLabelAlign.expectedOutput"></el-input>
       </el-form-item>
     </el-form>
           <el-button
@@ -34,11 +34,15 @@
         >进行测试<i class="el-icon-upload el-icon--right"></i
       ></el-button>
         <div>
-    <span>实际状态：{{S}}</span>
+    <!-- <span>实际状态：{{S}}</span>
     <el-divider direction="vertical"></el-divider>
     <span>实际销售额：{{A}}</span>
+    <el-divider direction="vertical"></el-divider> -->
+    <span>实际佣金：{{actual}}</span>
     <el-divider direction="vertical"></el-divider>
-    <span>实际佣金{{E}}</span>
+    <span>运行信息：{{info}}</span>
+    <el-divider direction="vertical"></el-divider>
+    <span>测试结果{{result}}</span>
     <el-divider direction="vertical"></el-divider>
   </div>
   </div>
@@ -52,17 +56,24 @@ export default {
   props: {},
   data() {
     return {
-        S:"",
-        A:"",
-        E:"",
+        // S:"",
+        // A:"",
+        // E:"",
+      actual:"",
+      info:"",
+      result:"",
       labelPosition: 'right',
         formLabelAlign: {
-          M: "",
-          I: "",
-          P: "",
-          predict:"正常/错误",
-          pre_amount:"",
-          pre_earn:"",
+          mainUnit:"",
+          screen:"",
+          perpheral:"",
+          expectedOutput:"",
+          // M: "",
+          // I: "",
+          // P: "",
+          // predict:"正常/错误",
+          // pre_amount:"",
+          // pre_earn:"",
         }, 
         date:"",
         loading:false,
@@ -77,20 +88,24 @@ export default {
     doTest(){
       let formdata = {
         id:"TS1",
-        M:this.formLabelAlign.M,
-        I:this.formLabelAlign.I,
-        P:this.formLabelAlign.P,
-        predict:this.formLabelAlign.predict,
-        pre_amount:this.formLabelAlign.pre_amount,
-        pre_earn:this.formLabelAlign.pre_earn,
+        mainUnit:this.formLabelAlign.mainUnit,
+        screen:this.formLabelAlign.screen,
+        perpheral:this.formLabelAlign.perpheral,
+        expectedOutput:this.formLabelAlign.expectedOutput,
+        // pre_amount:this.formLabelAlign.pre_amount,
+        // pre_earn:this.formLabelAlign.pre_earn,
       }
       let data = {
         sales_test_list:[formdata],
       }
-      testsales(data).then((res)=>{
-        this.S = res.data.test_result[0].actual;
-        this.A = res.data.test_result[0].amount;
-        this.E = res.data.test_result[0].earn;
+      testsales(JSON.stringify(data.sales_test_list)).then((res)=>{
+      // testsales(data).then((res)=>{
+        // this.S = res.data.test_result[0].actual;
+        // this.A = res.data.test_result[0].amount;
+        // this.E = res.data.test_result[0].earn;
+        this.actual = res.data.result_list[0].actualOutput;
+        this.info = res.data.result_list[0].info;
+        this.result = res.data.result_list[0].testResult;
       })
 
     }
