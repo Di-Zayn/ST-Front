@@ -46,22 +46,22 @@
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="M"
+          prop="mainUnit"
           label="销售的主机数量M（台）"
           width="240"
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="I"
+          prop="screen"
           label="销售的显示器数量I（台）"
           align="center"
         ></el-table-column>
         <el-table-column
-          prop="P"
+          prop="perpheral"
           label="销售的外设数量P（套）"
           align="center"
         ></el-table-column>
-        <el-table-column
+        <!-- <el-table-column
           prop="predict"
           label="预计状态"
           align="center"
@@ -70,13 +70,18 @@
           prop="pre_amount"
           label="预计销售额"
           align="center"
-        ></el-table-column>
+        ></el-table-column> -->
         <el-table-column
-          prop="pre_earn"
-          label="预计佣金"
+          prop="expectedOutput"
+          label="预计输出"
           align="center"
         ></el-table-column>
         <el-table-column
+          prop="actualOutput"
+          label="实际输出"
+          align="center"
+        ></el-table-column>
+        <!-- <el-table-column
           prop="S"
           label="实际状态"
           align="center"
@@ -85,11 +90,16 @@
           prop="A"
           label="实际销售额"
           align="center"
-        ></el-table-column>
-        <el-table-column
+        ></el-table-column> -->
+        <!-- <el-table-column
           prop="E"
           label="实际佣金"
           align="center"
+        ></el-table-column> -->
+        <el-table-column
+            prop="info"
+            label="程序运行信息"
+            align="center"
         ></el-table-column>
         <el-table-column prop="state" label="测试结果" align="center">
           <template slot-scope="scope">
@@ -124,6 +134,9 @@ export default {
       tableData: [],
       loading: false,
       classState: [],
+      inputData:{
+        sales_test_list:sales_bug_mock_1_json
+      }
     };
   },
   computed: {
@@ -152,9 +165,9 @@ export default {
         for (let key in element) {
           newData[key] = element[key];
         }
-        newData["A"] = "";
-        newData["S"] = "";
-        newData["E"] = "";
+        newData["actualOutput"] = "";
+        newData["info"] = "";
+        // newData["E"] = "";
         newData["state"] = null;
         this.tableData.push(newData);
       });
@@ -166,18 +179,20 @@ export default {
       this.loading = true;
       let testdata = {
         id: "TS1",
-        actual: "Internal Server Error!",
-        amount: "Internal Server Error!",
-        earn: "Internal Server Error!",
+        actualOutput: "Internal Server Error!",
+        info: "Internal Server Error!",
         test_time: "Internal Server Error!",
+        // actual: "Internal Server Error!",
+        // amount: "Internal Server Error!",
+        // earn: "Internal Server Error!",
+        // test_time: "Internal Server Error!",
       };
       setTimeout(() => {
         this.tableData.forEach((item, index) => {
           let responseObject = testdata;
-          item.A = responseObject.amount;
-          item.S = responseObject.actual;
-          item.E = responseObject.earn;
-          item.state = item.A == item.pre_amount ? true : false;
+          item.actualOutput = responseObject.actualOutput;
+          item.info = responseObject.info;
+          item.state = item.expectation == item.actualOutput ? true : false;
           item.time = responseObject.test_time;
           this.classState[index] = item["state"] ? "success-row" : "error-row";
         });
@@ -186,8 +201,12 @@ export default {
     },
     reset(value) {
       if (value === "1") {
-        this.json = mock_1_json;
+        // this.json = mock_1_json;
+        // this.initTableData(sales_bug_mock_1_json);
         this.initTableData(sales_bug_mock_1_json);
+        this.inputData = {
+          sales_test_list: sales_bug_mock_1_json,
+        };
       }
     },
   },

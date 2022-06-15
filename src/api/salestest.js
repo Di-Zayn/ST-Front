@@ -1,10 +1,20 @@
 import request from "../utils/request"
 
+// export const testsales = data => {
+//     return request({
+//         method: 'POST',
+//         url: '/api/sales/test',
+//         data
+//     })
+// }
+
 export const testsales = data => {
     return request({
         method: 'POST',
-        url: '/api/sales/test',
-        data
+        url: '/saleCom/SaleComTestResult',
+        data,
+        contentType: "application/json;charset=UTF-8",
+        dataType:"json",
     })
 }
 
