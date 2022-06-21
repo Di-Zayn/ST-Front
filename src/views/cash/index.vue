@@ -16,14 +16,17 @@
           <SingleCase />
         </el-tab-pane>
 
-        <el-tab-pane label="测试用例文件处理" name="fourth">
-          <ExcelFile />
-        </el-tab-pane>
+<<<<<<< HEAD
+=======
+<!--        <el-tab-pane label="测试用例文件处理" name="fourth">-->
+<!--          <ExcelFile />-->
+<!--        </el-tab-pane>-->
+>>>>>>> merge
 
         <el-tab-pane label="缺陷版本记录" name="fifth">
           <BugRecord  :parentHeight="parentHeight"/>
         </el-tab-pane>
-        
+
       </el-tabs>
     </el-card>
 </div>
@@ -34,16 +37,14 @@
 import CashQuestion from "./question";
 import SystemTest from "./systemtest";
 import SingleCase from "./singlecase";
-import ExcelFile from "./excelfile";
 import BugRecord from "./bug";
 
 export default {
   name: "Cash",
-  components: { 
+  components: {
     CashQuestion,
     SystemTest,
     SingleCase,
-    ExcelFile,
     BugRecord
   },
   props: {},

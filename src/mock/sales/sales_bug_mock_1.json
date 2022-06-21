@@ -1,11 +1,9 @@
 [
   {
     "id": "TS1",
-    "M": "-1",
-    "I": "-1",
-    "P": "-1",
-    "predict": "错误",
-    "pre_amount": "",
-    "pre_earn": ""
+    "mainUnit": "-1",
+    "screen": "-1",
+    "perpheral": "-1",
+    "expectedOutput": "Each salesman sells at least one complete machine per month"
   }
 ]

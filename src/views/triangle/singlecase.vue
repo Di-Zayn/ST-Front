@@ -32,7 +32,10 @@
     <el-divider direction="vertical"></el-divider>
     <span>运行信息：{{info}}</span>
     <el-divider direction="vertical"></el-divider>
-  </div>
+          <span>测试结果：{{result}}</span>
+          <el-divider direction="vertical"></el-divider>
+
+        </div>
   </div>
 </template>
 
@@ -46,6 +49,7 @@ export default {
     return {
         actual:"",
   info:"",
+      result:"",
       labelPosition: 'right',
         formLabelAlign: {
           A: "",
@@ -64,21 +68,22 @@ export default {
   mounted() {},
   methods: {
     doTest(){
-
       let formdata = {
         id:"TS1",
-        A:this.formLabelAlign.A,
-        B:this.formLabelAlign.B,
-        C:this.formLabelAlign.C,
-        expectation:this.formLabelAlign.expectation,
+        a:this.formLabelAlign.A,
+        b:this.formLabelAlign.B,
+        c:this.formLabelAlign.C,
+        expectedOutput:this.formLabelAlign.expectation,
       }
       let data = {
-
         triangle_test_list:[formdata],
       }
-      testtriangle(data).then((res)=>{
-        this.actual = res.data.test_result[0].actual;
-        this.info = res.data.test_result[0].info;
+      console.log(JSON.stringify(data.triangle_test_list))
+      testtriangle(JSON.stringify(data.triangle_test_list)).then((res)=>{
+        console.log(res)
+        this.actual = res.data.result_list[0].actualOutput;
+        this.info = res.data.result_list[0].info;
+        this.result = res.data.result_list[0].testResult;
       })
 
     }

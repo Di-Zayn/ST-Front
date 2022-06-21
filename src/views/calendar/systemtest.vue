@@ -28,14 +28,14 @@
             action=""
             :on-change="handleChange"
             :on-remove="handleRemove"
-            :on-exceed="handleExceed" 
+            :on-exceed="handleExceed"
 
             :auto-upload="false" drag>
-              
+
               <i class="el-icon-upload" />
               <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
               <div slot="tip" class="el-upload__tip" style="color:#ff0000">提示：请注意上述格式要求
-                
+
               </div>
             </el-upload>
             <div slot="footer" class="dialog-footer">
@@ -102,7 +102,7 @@
                   label="实际输出"
                   align="center"
                 ></el-table-column>
-                
+
               </el-table>
             </div>
             <!-- <div>
@@ -112,7 +112,7 @@
                 运行时间
               </div>
             </div> -->
-            
+
         </el-dialog>
 
 
@@ -131,7 +131,7 @@
           plain
           >重置</el-button
         >
-        
+
       </div>
     </div>
 
@@ -237,7 +237,7 @@ export default {
   },
   computed: {
     tableHeight(){
-      return (this.parentHeight - 260) > 650 ? 650 : (this.parentHeight - 260);
+      return 430;
     }
   },
   watch: {
@@ -310,12 +310,12 @@ export default {
       option && myChart.setOption(option);
       },
 
-    
-    //上传文件时处理方法  
+
+    //上传文件时处理方法
         handleChange(file, fileList){
             this.fileTemp = file.raw;
             if(this.fileTemp){
-                // if((this.fileTemp.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') 
+                // if((this.fileTemp.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
                 //     || (this.fileTemp.type == 'application/vnd.ms-excel')){
                 //       console.log("yes")
                 //     this.importfxx(this.fileTemp);
@@ -355,23 +355,23 @@ export default {
         const reader = new FileReader()
         const _this = this
         reader.readAsArrayBuffer(obj)
-       
+
         reader.onload = function () {
-        
+
         const buffer = reader.result
         const bytes = new Uint8Array(buffer)
         const length = bytes.byteLength
         let binary = ''
-         
+
         for (let i = 0; i < length; i++) {
-        
+
           binary += String.fromCharCode(bytes[i])
         }
-        
+
           // const XLSX = require('xlsx')
 
           console.log("onload");
-          const wb = XLSX.read(binary, {       
+          const wb = XLSX.read(binary, {
             type: 'binary'
           })
           console.log("onload");
@@ -380,9 +380,9 @@ export default {
           this.data = [...outdata]
           const arr = []
           this.data.map(v => {
-        
+
             const obj = { }
-        
+
             obj.id = v.id
             obj.year = v.year
             obj.month=v.month
@@ -394,8 +394,8 @@ export default {
             obj["actual"] = "";
             obj["info"] = "";
             obj["state"] = null;
-            
-            
+
+
             arr.push(obj)
             console.log(arr)
           })
@@ -416,7 +416,7 @@ export default {
     //         let workBook = xlsx.read(dataBinary, { type: 'binary', cellDates: true });
     //         let workSheet = workBook.Sheets[workBook.SheetNames[0]];
     //         const data = xlsx.utils.sheet_to_json(workSheet);
-            
+
     //         this.$emit('get-data', data);
     //     },
         open3() {
@@ -471,6 +471,7 @@ export default {
       console.log(newData)
       const _this = this;
       this.loading = true;
+      console.log(newData.calendar_test_list);
       testcalendar(JSON.stringify(newData.calendar_test_list))
         .then((res) => {
           this.pieData=res.data.pieData

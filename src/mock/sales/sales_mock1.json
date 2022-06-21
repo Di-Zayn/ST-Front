@@ -1,0 +1,170 @@
+[
+    {
+        "id": "1",
+        "mainUnit": "1",
+        "screen": "1",
+        "perpheral": "1",
+        "expectedOutput": "10"
+    },
+    {
+        "id": "2",
+        "mainUnit": "2",
+        "screen": "1",
+        "perpheral": "1",
+        "expectedOutput": "12.5"
+    },
+    {
+        "id": "3",
+        "mainUnit": "4",
+        "screen": "12",
+        "perpheral": "12",
+        "expectedOutput": "100"
+    },
+    {
+        "id": "4",
+        "mainUnit": "5",
+        "screen": "12",
+        "perpheral": "12",
+        "expectedOutput": "153.75"
+    },
+    {
+        "id": "5",
+        "mainUnit": "18",
+        "screen": "18",
+        "perpheral": "18",
+        "expectedOutput": "270"
+    },
+    {
+        "id": "6",
+        "mainUnit": "0",
+        "screen": "1",
+        "perpheral": "1",
+        "expectedOutput": "Each salesman sells at least one complete machine per month"
+    },
+    {
+        "id": "7",
+        "mainUnit": "1",
+        "screen": "40",
+        "perpheral": "45",
+        "expectedOutput": "650"
+    },
+    {
+        "id": "8",
+        "mainUnit": "3",
+        "screen": "38",
+        "perpheral": "50",
+        "expectedOutput": "693"
+    },
+    {
+        "id": "9",
+        "mainUnit": "35",
+        "screen": "39",
+        "perpheral": "46",
+        "expectedOutput": "823"
+    },
+    {
+        "id": "10",
+        "mainUnit": "69",
+        "screen": "41",
+        "perpheral": "44",
+        "expectedOutput": "987"
+    },
+    {
+        "id": "11",
+        "mainUnit": "70",
+        "screen": "42",
+        "perpheral": "43",
+        "expectedOutput": "989"
+    },
+    {
+        "id": "12",
+        "mainUnit": "35",
+        "screen": "1",
+        "perpheral": "45",
+        "expectedOutput": "586"
+    },
+    {
+        "id": "13",
+        "mainUnit": "34",
+        "screen": "2",
+        "perpheral": "44",
+        "expectedOutput": "578"
+    },
+    {
+        "id": "14",
+        "mainUnit": "36",
+        "screen": "79",
+        "perpheral": "46",
+        "expectedOutput": "1068"
+    },
+    {
+        "id": "15",
+        "mainUnit": "37",
+        "screen": "80",
+        "perpheral": "47",
+        "expectedOutput": "1088"
+    },
+    {
+        "id": "16",
+        "mainUnit": "35",
+        "screen": "40",
+        "perpheral": "1",
+        "expectedOutput": "424"
+    },
+    {
+        "id": "17",
+        "mainUnit": "34",
+        "screen": "41",
+        "perpheral": "2",
+        "expectedOutput": "434"
+    },
+    {
+        "id": "18",
+        "mainUnit": "36",
+        "screen": "42",
+        "perpheral": "89",
+        "expectedOutput": "1233"
+    },
+    {
+        "id": "19",
+        "mainUnit": "37",
+        "screen": "38",
+        "perpheral": "90",
+        "expectedOutput": "1223"
+    },
+    {
+        "id": "20",
+        "mainUnit": "35",
+        "screen": "0",
+        "perpheral": "45",
+        "expectedOutput": "Each salesman sells at least one complete machine per month"
+    },
+    {
+        "id": "21",
+        "mainUnit": "35",
+        "screen": "40",
+        "perpheral": "0",
+        "expectedOutput": "Each salesman sells at least one complete machine per month"
+    },
+    {
+        "id": "22",
+        "mainUnit": "71",
+        "screen": "40",
+        "perpheral": "45",
+        "expectedOutput": "Main unit sales exceeded the limit"
+    },
+    {
+        "id": "23",
+        "mainUnit": "35",
+        "screen": "81",
+        "perpheral": "45",
+        "expectedOutput": "Screen sales exceeded the limit"
+    },
+    {
+        "id": "24",
+        "mainUnit": "35",
+        "screen": "40",
+        "perpheral": "91",
+        "expectedOutput": "Perpheral sales exceeded the limit"
+    }
+]
