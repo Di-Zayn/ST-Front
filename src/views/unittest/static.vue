@@ -1,19 +1,21 @@
 <template>
-    <div>
-       <p >设计以下用例：</p>
-        <img style="width:60%;height:60%;" src="./case1.png"/>
+  <div>  
+    <p style="margin-top:10px;font-size:20px;">静态测试结果如下：</p>
+    <img src="./statictest.png"/>
+  </div>
 
-    </div>
+
+
 </template>
 
 <script>
 
 export default {
-  name: "Case",
+  name: "Static",
   components: {},
   props: {},
   data() {
-    return {}
+    return { }
   },
   computed: {},
   watch: {},

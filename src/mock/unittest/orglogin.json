@@ -1,0 +1,10 @@
+[
+  {"id":"TS1","username":"78355314","password":"12345678A","state":1,"expectation":"密码错误","actual":"密码错误","info":"测试通过","time":""},
+  {"id":"TS2","username":"14022057","password":"12345678","state":0,"expectation":"该组织还未通过审核","actual":"该组织还未通过审核","info":"测试通过","time":""},
+  {"id":"TS3","username":"89337568","password":"12345678","state":-1,"expectation":"该组织申请被拒绝","actual":"该组织申请被拒绝","info":"测试通过","time":""},
+  {"id":"TS4","username":"11111111","password":"12345678","state":1,"expectation":"该组织还未注册","actual":"该组织还未注册","info":"测试通过","time":""},
+  {"id":"TS5","username":"79355314","password":"12345678","state":1,"expectation":"登录成功","actual":"登录成功","info":"测试通过","time":""},
+  {"id":"TS6","username":"null","password":"null","state":1,"expectation":"输入信息不能为空","actual":"输入信息不能为空","info":"测试通过","time":""}
+
+  
+]

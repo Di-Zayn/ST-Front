@@ -46,7 +46,7 @@
           <span>项目测试</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/two">单元测试</el-menu-item>
+          <el-menu-item index="/unittest">单元测试</el-menu-item>
           <el-menu-item index="/four">集成测试</el-menu-item>
           <el-menu-item index="/seven">回归测试</el-menu-item>
           <el-menu-item index="/nine">系统测试</el-menu-item>

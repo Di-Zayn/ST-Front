@@ -1,0 +1,8 @@
+[
+  {"id":"TS1","ID":"1","size":"5","expectation":"评论个数未达到情感分析要求","actual":"评论个数未达到情感分析要求","info":"测试通过","time":""},
+  {"id":"TS2","ID":"2","size":"10","expectation":"即时分析","actual":"即时分析","info":"测试通过","time":""},
+  {"id":"TS3","ID":"35","size":"15","expectation":"来自数据库缓存","actual":"来自数据库缓存","info":"测试通过","time":""},
+  {"id":"TS4","ID":"40","size":"0","expectation":"评论个数未达到情感分析要求","actual":"评论个数未达到情感分析要求","info":"测试通过","time":""}
+  
+  
+]

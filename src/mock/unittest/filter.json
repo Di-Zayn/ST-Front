@@ -1,0 +1,10 @@
+[
+  {"id":"TS1","genres":"-","state":"未开始","isabletoRe":"Y","key":"数据库","expectation":"返回未开始的活动","actual":"返回未开始的活动","info":"测试通过","time":""},
+  {"id":"TS2","genres":"学术，志愿","state":"-","isabletoRe":"Y","key":"test","expectation":"返回所有活动","actual":"返回所有活动","info":"测试通过","time":""},
+  {"id":"TS3","genres":"娱乐","state":"已结束","isabletoRe":"N","key":"test","expectation":"返回已结束的活动","actual":"返回已结束的活动","info":"测试通过","time":""},
+  {"id":"TS4","genres":"庆典","state":"进行中","isabletoRe":"Y","key":"-","expectation":"返回进行中的活动","actual":"返回进行中的活动","info":"测试通过","time":""},
+  {"id":"TS5","genres":"-","state":"-","isabletoRe":"N","key":"-","expectation":"返回所有活动","actual":"返回所有活动","info":"测试通过","time":""}
+
+  
+  
+]

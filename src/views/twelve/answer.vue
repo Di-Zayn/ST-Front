@@ -1,6 +1,6 @@
 <template>
   <div>  
-    <p style="margin-top:100px;font-size:20px;">程序图如下（圈复杂度为7）：</p>
+    <p style="margin-top:10px;font-size:20px;">程序图如下（圈复杂度为7）：</p>
     <img src="./control.png"/>
   </div>
 

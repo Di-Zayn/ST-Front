@@ -16,6 +16,8 @@ import Ten from '@/views/ten/'
 import Eleven from '@/views/eleven/'
 import Twelve from '@/views/twelve/'
 import Thirteen from '@/views/thirteen/'
+import Unittest from '@/views/unittest/'
+
 
 Vue.use(VueRouter)
 
@@ -92,6 +94,11 @@ const routes = [
         path:'/thirteen',
         name:'thirteen',
         component:Thirteen
+      },
+      {
+        path:'/unittest',
+        name:'unittest',
+        component:Unittest
       }
     ]
   }

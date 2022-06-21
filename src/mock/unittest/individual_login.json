@@ -1,0 +1,9 @@
+[
+  {"id":"TS1","username":"DRT@qq.com","password":"12345678A","state":1,"expectation":"密码错误","actual":"密码错误","info":"测试通过","time":""},
+  {"id":"TS2","username":"WHL@qq.com","password":"12345678","state":0,"expectation":"该用户目前处于封禁状态","actual":"该用户目前处于封禁状态","info":"测试通过","time":""},
+  {"id":"TS3","username":"ABC@qq.com","password":"12345678","state":1,"expectation":"该用户尚未注册","actual":"该用户尚未注册","info":"测试通过","time":""},
+  {"id":"TS4","username":"SSG@qq.com","password":"12345678","state":1,"expectation":"登录成功","actual":"登录成功","info":"测试通过","time":""},
+  {"id":"TS5","username":"null","password":"null","state":1,"expectation":"输入不能为空","actual":"输入不能为空","info":"测试通过","time":""}
+
+  
+]

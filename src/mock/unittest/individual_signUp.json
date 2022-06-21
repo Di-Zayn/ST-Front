@@ -1,0 +1,8 @@
+[
+  {"id":"TS1","email":"DRT@qq.com","password":"12345678As","name":"小蓝","expectation":"该账号已被注册","actual":"该账号已被注册","info":"测试通过","time":""},
+  {"id":"TS2","email":"2872529770@qq.com","password":"987654wq","name":"小红","expectation":"注册成功","actual":"注册成功","info":"测试通过","time":""},
+  {"id":"TS3","email":"null","password":"null","name":"null","expectation":"输入信息不能为空","actual":"输入信息不能为空","info":"测试通过","time":""}
+ 
+
+  
+]
