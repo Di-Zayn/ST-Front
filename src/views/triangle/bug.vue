@@ -104,8 +104,8 @@ export default {
   props: ["parentHeight"],
   data() {
     return {
-      options: [{ value: "1", label: "bug_v1_无法处理空字符串" }],
-      value: "1",
+      options: [],
+      value: "-",
       tableData: [],
       loading: false,
       classState: [],

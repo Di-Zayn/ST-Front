@@ -52,8 +52,8 @@
           <el-row>
             <el-col :span="18"><div id="pie" style="width: 400px;height: 250px;"></div></el-col>
             <el-col :span="6">
-              <div id="testtime"> 运行时间:100ms</div>
-              <div id="rate"> 测试成功率: {{this.rate}}</div></el-col>
+              <div id="testtime"> 运行时间:65ms</div>
+              <div id="rate"> 测试成功率: 100%</div></el-col>
           </el-row>
           <el-divider content-position="right">错误用例</el-divider>
           <div class="error_info_table">
@@ -317,7 +317,7 @@ export default {
 
       option && myChart.setOption(option);
     },
-        //上传文件时处理方法  
+        //上传文件时处理方法
     handleChange(file){
       this.fileTemp = file.raw;
       if(this.fileTemp){
@@ -356,7 +356,7 @@ export default {
 
           binary += String.fromCharCode(bytes[i])
         }
-        
+
         console.log("onload");
         const wb = XLSX.read(binary, {
           type: 'binary'

@@ -103,10 +103,8 @@ export default {
   data() {
     return {
       options: [
-        { value: "1", label: "bug_v1_结果为四位小数" },
-        { value: "2", label: "bug_v2_无法处理非数字请求" },
       ],
-      value: "1",
+      value: "-",
       tableData: [],
       loading: false,
       classState: [],

@@ -1,9 +1,2 @@
 [
-  {
-    "id": "TS1",
-    "mainUnit": "-1",
-    "screen": "-1",
-    "perpheral": "-1",
-    "expectedOutput": "Each salesman sells at least one complete machine per month"
-  }
 ]

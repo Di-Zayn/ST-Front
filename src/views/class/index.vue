@@ -3,22 +3,28 @@
     <el-card shadow="hover">
       <el-tabs v-model="activeName" @tab-click="handleClick">
 
-        <el-tab-pane label="问题描述" name="first">
-          <SalesQuestion />
+        <el-tab-pane label="覆盖率分析" name="first">
+          <img style="width: 65%" src="./1.png"/>
+          <img style="width: 65%" src="./2.png"/>
+          <img style="width: 65%" src="./3.png"/>
+          <img style="width: 65%" src="./4.png"/>
         </el-tab-pane>
-        <el-tab-pane label="问题解答" name="2">
-          <div style="font-size:16px;">
-            <p>A:有效等价类{0000，0001，0010，0011、0100，0101，0110，0111，1000，1001}，无效等价类{x<4bits,x>4bits,x=4bits但不在10种中}</p>
-            <p>B:有效等价类{x=64bits}，无效等价类{x<64bits,x>64bits}</p>
-            <p>C:有效等价类{现金查询，支票查询，存款，取款}，无效等价类{其他信息}</p>
-            <p>D:有效等价类{100<=x<=999}，无效等价类{x<100,x>999}</p>
-            <p>E:有效等价类{200<=x<=500,600<=x<=900}，无效等价类{x<200,500<x<600,x>900}</p>
-            <p>F:有效等价类{x=六位字符串}，无效等价类{x<六位字符串,x>六位字符串}</p>
-            <p>G:有效等价类{x=256bits}，无效等价类{x<256bits,x>256bits}</p>
-            <p>强一般等价类求笛卡尔积，共10*1*4*1*2*1*1=80个</p>
-          </div>
+        <el-tab-pane label="出错统计" name="second">
+          <img style="width: 65%" src="./e1.png"/>
+          <img style="width: 65%" src="./e2.png"/>
+          <br><br>
+          <el-divider></el-divider>
+          <br><br>
+          <img style="width: 65%" src="./e3.png"/>
+          <img style="width: 65%" src="./e4.png"/>
+          <img style="width: 65%" src="./e5.png"/>
+          <br><br>
+          <el-divider></el-divider>
+          <br><br>
+          <img style="width: 65%" src="./e6.png"/>
+          <img style="width: 65%" src="./e7.png"/>
+        </el-tab-pane>
 
-        </el-tab-pane>
 
 
       </el-tabs>
@@ -35,10 +41,9 @@
 
 <script>
 
-import SalesQuestion from "./question";
+
 export default {
-  name: "seven",
-  components: { SalesQuestion },
+  name: "Class",
   props: {},
   data() {
     return {

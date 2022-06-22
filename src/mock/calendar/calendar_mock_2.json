@@ -1,13 +1,55 @@
 [
-  {"id":"TS1","year":1998,"month":9,"day":5,"expectation":"1998/9/6"},
-  {"id":"TS2","year":2000,"month":4,"day":31,"expectation":"Error Date"},
-  {"id":"TS3","year":2008,"month":2,"day":29,"expectation":"2008/3/1"},
-  {"id":"TS4","year":2012,"month":3,"day":30,"expectation":"2012/3/31"},
-  {"id":"TS5","year":2020,"month":4,"day":30,"expectation":"2020/5/1"},
-  {"id":"TS6","year":999,"month":3,"day":-1,"expectation":"Error Date"},
-  {"id":"TS7","year":2019,"month":12,"day":31,"expectation":"2020/1/1"},
-  {"id":"TS8","year":2019,"month":2,"day":29,"expectation":"Error Date"},
-  {"id":"TS9","year":3001,"month":1,"day":29,"expectation":"Error Date"},
-  {"id":"TS10","year":2000,"month":5,"day":31,"expectation":"2000/6/1"}
-  
+  {"id":"TS1","year":2000,"month":1,"day":1,"expectation":"2000/1/2"},
+  {"id":"TS2","year":2008,"month":3,"day":28,"expectation":"2008/3/29"},
+  {"id":"TS3","year":2000,"month":5,"day":29,"expectation":"2000/5/30"},
+  {"id":"TS4","year":1996,"month":7,"day":30,"expectation":"1996/7/31"},
+  {"id":"TS5","year":1992,"month":10,"day":31,"expectation":"1992/11/1"},
+
+  {"id":"TS6","year":1001,"month":1,"day":1,"expectation":"1001/1/2"},
+  {"id":"TS7","year":1999,"month":3,"day":28,"expectation":"1999/3/29"},
+  {"id":"TS8","year":2001,"month":5,"day":29,"expectation":"2001/5/30"},
+  {"id":"TS9","year":2555,"month":8,"day":30,"expectation":"2555/8/31"},
+  {"id":"TS10","year":2022,"month":10,"day":31,"expectation":"2022/11/1"},
+
+  {"id":"TS11","year":2000,"month":2,"day":3,"expectation":"2000/2/4"},
+  {"id":"TS12","year":1996,"month":2,"day":28,"expectation":"1996/2/29"},
+  {"id":"TS13","year":2008,"month":2,"day":29,"expectation":"2008/3/1"},
+  {"id":"TS14","year":2020,"month":2,"day":30,"expectation":"Error Date"},
+  {"id":"TS15","year":1200,"month":2,"day":31,"expectation":"Error Date"},
+
+  {"id":"TS16","year":1999,"month":2,"day":3,"expectation":"1999/2/4"},
+  {"id":"TS17","year":1001,"month":2,"day":28,"expectation":"1001/3/1"},
+  {"id":"TS18","year":2003,"month":2,"day":29,"expectation":"Error Date"},
+  {"id":"TS19","year":2555,"month":2,"day":30,"expectation":"Error Date"},
+  {"id":"TS20","year":2021,"month":2,"day":31,"expectation":"Error Date"},
+
+  {"id":"TS21","year":1992,"month":4,"day":10,"expectation":"1992/4/11"},
+  {"id":"TS22","year":1996,"month":6,"day":28,"expectation":"1996/6/29"},
+  {"id":"TS23","year":2000,"month":9,"day":29,"expectation":"2000/9/30"},
+  {"id":"TS24","year":2004,"month":11,"day":30,"expectation":"2004/12/1"},
+  {"id":"TS25","year":2008,"month":11,"day":31,"expectation":"Error Date"},
+
+  {"id":"TS26","year":1997,"month":4,"day":10,"expectation":"1997/4/11"},
+  {"id":"TS27","year":2001,"month":6,"day":28,"expectation":"2001/6/29"},
+  {"id":"TS28","year":2003,"month":9,"day":29,"expectation":"2003/9/30"},
+  {"id":"TS29","year":2021,"month":9,"day":30,"expectation":"2021/10/1"},
+  {"id":"TS30","year":2019,"month":11,"day":31,"expectation":"Error Date"},
+
+  {"id":"TS31","year":2000,"month":12,"day":15,"expectation":"2000/12/16"},
+  {"id":"TS32","year":2008,"month":12,"day":28,"expectation":"2008/12/29"},
+  {"id":"TS33","year":2000,"month":12,"day":29,"expectation":"2000/12/30"},
+  {"id":"TS34","year":1996,"month":12,"day":30,"expectation":"1996/12/31"},
+  {"id":"TS35","year":1992,"month":12,"day":31,"expectation":"1993/1/1"},
+
+  {"id":"TS36","year":1999,"month":12,"day":27,"expectation":"1999/12/28"},
+  {"id":"TS37","year":2001,"month":12,"day":28,"expectation":"2001/12/29"},
+  {"id":"TS38","year":2003,"month":12,"day":29,"expectation":"2003/12/30"},
+  {"id":"TS39","year":2555,"month":12,"day":30,"expectation":"2555/12/31"},
+  {"id":"TS40","year":2021,"month":12,"day":31,"expectation":"2022/1/1"},
+
+  {"id":"TS41","year":-1,"month":1,"day":12,"expectation":"Error Date"},
+  {"id":"TS42","year":0,"month":1,"day":2,"expectation":"Error Date"},
+  {"id":"TS43","year":2000,"month":13,"day":29,"expectation":"Error Date"},
+  {"id":"TS44","year":2000,"month":3,"day":32,"expectation":"Error Date"},
+  {"id":"TS45","year":0,"month":0,"day":0,"expectation":"Error Date"}
 ]
