@@ -1,49 +1,47 @@
 <template>
     <div>
-        <span style="font-size:24px;"><b>&nbsp;第四题</b></span>
-      <div style="font-size:16px;">
-        
-      <p >讨论题：边界值测试可以适用于function(method) level，class level,，system level，分析电商平台系统测试时考虑的边界值情况。</p>
+<!--  <p style="font-size:20px;">一.问题分析</p>-->
+<!--  <p>电商平台流程图</p>-->
+<!--  <img src="./4.png"/>-->
+  <p style="font-size:20px;">1.Funtion level</p>
+  <p >可知，该级别对应最一般的边界值测试，以电商平台系统中的结算功能为例，设某一方法getDiscount功能为根据用户的年度消费总额和注册时间（注册到现在经过的年数）返回本次消费的折扣，且后者与前两者具有简单的线性关系。则输入变量为：totalAmount:double， registerTime: int，前者范围应为（0, Max]，其中Max应为单笔支付限额；后者应为[0， Age]，Age为平台上线的年数。以此可对函数进行边界值分析。</p>
+      <p style="font-size:20px;">2.Class level</p>
+        <p>可知，若getDiscount所属的类与其他类有数据交互，或是类内方法间有交互，则可以在class level进行测试。假设getDiscount新增一输入，为userLevel:int，0代表非会员，1-5代表会员等级。</p>
+        <p>该变量需要其他类方法获得，且取值为[0,5]，则可以对其进行边界值的分析。</p>
+      <p style="font-size:20px;">3.System level</p>
+      <p>设getDiscount新增一输入，为userAge：int，若小于18岁则享受学生折扣，且该参数需要经过公安系统获得。则同理，需要根据公安系统API的说明，获得其边界，并对其进行边界值分析。</p>
 
-</div>
-
-  <p style="margin-top:100px;font-size:20px;">一.问题分析</p>
-  <p>电商平台流程图</p>
-  <img src="./4.png"/>
-  <p style="margin-top:100px;font-size:20px;">二.System level</p>
-  <p >1.功能测试</p>
-  <p>测试依据为需求文档及需求分析文档，验证产品功能是否符合需求。</p>
-<el-table
-      :data="questionData"
-      style="width: 60%;font-size:12px;"
-      >
-      <el-table-column
-        prop="minute"
-        label=""
-        width="140"
-        align="center">
-      </el-table-column>
-      <el-table-column
-        prop="times"
-        label="正常情况"
-        width="240"
-        align="center">
-      </el-table-column>
-      <el-table-column
-        prop="level"
-        label="边界值"
-        align="center">
-      </el-table-column>
-    </el-table>
-<p style="margin-top:50px;">举例：</p>
-<p>账号密码输入次数限制为5：0，1，2，5，6</p>
-<p style="margin-top:50px;">2.非功能需求</p>
-<p>性能测试：响应时间，准确度等；</p>
-<p>压力测试：考虑在如双十一等活动期间</p>
-<p style="margin-top:50px;">三.Class level</p>
-<p>考虑类之间，类内方法/函数之间的调用的变量边界等</p>
-<p style="margin-top:50px;">四.Method level</p>
-<p>输入/输出变量取值边界，循环次数等</p>
+      <!--<el-table-->
+<!--      :data="questionData"-->
+<!--      style="width: 60%;font-size:12px;"-->
+<!--      >-->
+<!--      <el-table-column-->
+<!--        prop="minute"-->
+<!--        label=""-->
+<!--        width="140"-->
+<!--        align="center">-->
+<!--      </el-table-column>-->
+<!--      <el-table-column-->
+<!--        prop="times"-->
+<!--        label="正常情况"-->
+<!--        width="240"-->
+<!--        align="center">-->
+<!--      </el-table-column>-->
+<!--      <el-table-column-->
+<!--        prop="level"-->
+<!--        label="边界值"-->
+<!--        align="center">-->
+<!--      </el-table-column>-->
+<!--    </el-table>-->
+<!--<p style="margin-top:50px;">举例：</p>-->
+<!--<p>账号密码输入次数限制为5：0，1，2，5，6</p>-->
+<!--<p style="margin-top:50px;">2.非功能需求</p>-->
+<!--<p>性能测试：响应时间，准确度等；</p>-->
+<!--<p>压力测试：考虑在如双十一等活动期间</p>-->
+<!--<p style="margin-top:50px;">三.Class level</p>-->
+<!--<p>考虑类之间，类内方法/函数之间的调用的变量边界等</p>-->
+<!--<p style="margin-top:50px;">四.Method level</p>-->
+<!--<p>输入/输出变量取值边界，循环次数等</p>-->
 
     </div>
 
@@ -94,7 +92,7 @@ export default {
           times:"评价成功",
           level:"默认好评时间限制",
         },
-       
+
         ], }
   },
   computed: {},

@@ -1,17 +1,17 @@
 <template>
     <div>
-        <span style="font-size:24px;"><b>&nbsp;第十三题</b></span>
+        <span style="font-size:24px;"><b>&nbsp;第17题</b></span>
       <div style="font-size:16px;">
 
       <p >一销售系统，如果销售员的年销售额大于200万RMB且请假天数不超过10天的情况下，现金到帐大于等于60%，则佣金（提成）系数为7，即佣金值为销售额除以佣金系数；现金到帐小于60%，佣金不予计算。所有其他情况且现金到帐小于等于85%，则按佣金系数均为6计算佣金，现金到账大于85%，佣金系数按5处理。</p>
        <p> 根据题意设计流程图并设计测试用例实现白盒测试（White Box Test）的1）语句覆盖，2）判断覆盖，3）条件覆盖，4）判断—条件覆盖，5）条件组合覆盖（测试用例及覆盖表示要清晰）。</p>
 
+      </div>
 
-
-    </div>
-      <img src="./G.png"/>
-      <img src="./1.png"/>
-      <img src="./2.png"/>
+<!--    </div>-->
+<!--      <img src="./G.png"/>-->
+<!--      <img src="./1.png"/>-->
+<!--      <img src="./2.png"/>-->
 <!--<p style="margin-top:50px;">语句覆盖：</p>-->
 <!--<p>无条件语句的序列作为一个节点，对所有节点进行覆盖</p>-->
 <!--<p>TC1:  acdfjk</p>-->
@@ -37,33 +37,33 @@
 
 <!--<p style="margin-top:50px;">条件覆盖：</p>-->
 <!--<p>要使得每个判断中的每个条件的可能取值至少满足一次。</p>-->
-      <h2 style="margin-left: 20px;font-weight: bold">所有条件</h2>
-<el-table
-      :data="questionData"
-      style="width: 60%;font-size:20px; margin-left: 20px"
-      >
-      <el-table-column
-        prop="con"
-        label="条件"
-        width="300"
-        align="center">
-      </el-table-column>
-      <el-table-column
-        prop="t"
-        label="真"
-        width="240"
-        align="center">
-      </el-table-column>
-      <el-table-column
-        prop="f"
-        label="假"
-        align="center">
-      </el-table-column>
-    </el-table>
-      <img src="./3.png"/>
-      <img src="./4.png"/>
-      <img src="./5.png"/>
-      <img src="./6.png"/>
+<!--      <h2 style="margin-left: 20px;font-weight: bold">所有条件</h2>-->
+<!--<el-table-->
+<!--      :data="questionData"-->
+<!--      style="width: 60%;font-size:20px; margin-left: 20px"-->
+<!--      >-->
+<!--      <el-table-column-->
+<!--        prop="con"-->
+<!--        label="条件"-->
+<!--        width="300"-->
+<!--        align="center">-->
+<!--      </el-table-column>-->
+<!--      <el-table-column-->
+<!--        prop="t"-->
+<!--        label="真"-->
+<!--        width="240"-->
+<!--        align="center">-->
+<!--      </el-table-column>-->
+<!--      <el-table-column-->
+<!--        prop="f"-->
+<!--        label="假"-->
+<!--        align="center">-->
+<!--      </el-table-column>-->
+<!--    </el-table>-->
+<!--      <img src="./3.png"/>-->
+<!--      <img src="./4.png"/>-->
+<!--      <img src="./5.png"/>-->
+<!--      <img src="./6.png"/>-->
 
 <!--<p>测试用例：</p>-->
 <!--<p>TC1:  F1 T2 T3 F4 F5 F6 F7</p>-->

@@ -4,7 +4,23 @@
       <el-tabs v-model="activeName" @tab-click="handleClick">
 
         <el-tab-pane label="问题描述" name="first">
+          <span style="font-size:24px;"><b>&nbsp;第15题</b></span>
+          <div style="font-size:16px;">
+
+            <p >分析或查阅得到正确的ATM的系统状态图，再基于state transition testing分析出transition tree，最后设计出逻辑测试用例。</p>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="状态图" name="2">
+          <img style="width:60%;height:60%;" src="./3.png"/>
+
+        </el-tab-pane>
+        <el-tab-pane label="State Transition" name="3">
+          <img src="./4.png"/>
+
+        </el-tab-pane>
+        <el-tab-pane label="用例设计" name="4">
           <SalesQuestion />
+
         </el-tab-pane>
 
 
@@ -16,7 +32,7 @@
 
 
 
-    
+
   </div>
 </template>
 
@@ -50,11 +66,11 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    
+
 
   },
   methods: {
-    
+
   },
 };
 

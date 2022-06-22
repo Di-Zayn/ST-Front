@@ -4,9 +4,15 @@
       <el-tabs v-model="activeName" @tab-click="handleClick">
 
         <el-tab-pane label="问题描述" name="first">
+          <span style="font-size:24px;"><b>&nbsp;第5题</b></span>
+          <div style="font-size:16px;">
+            <p >讨论题：边界值测试可以适用于function(method) level，class level,，system level，分析电商平台系统测试时考虑的边界值情况。</p>
+
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="问题解答" name="second">
           <SalesQuestion />
         </el-tab-pane>
-
 
       </el-tabs>
     </el-card>
@@ -16,7 +22,7 @@
 
 
 
-    
+
   </div>
 </template>
 
@@ -50,11 +56,11 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    
+
 
   },
   methods: {
-    
+
   },
 };
 

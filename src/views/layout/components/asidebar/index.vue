@@ -3,7 +3,7 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#0C73B2"
+      background-color="#38626c"
       text-color="#fff"
       active-text-color="#ffd04b"
       :collapse="isCollapse"
@@ -29,14 +29,14 @@
           <span>讨论问题</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/two">第2题：销售管理系统</el-menu-item>
-          <el-menu-item index="/four">第4题：讨论</el-menu-item>
-          <el-menu-item index="/seven">第7题：实时系统</el-menu-item>
-          <el-menu-item index="/nine">第9题：ATM机</el-menu-item>
-          <el-menu-item index="/ten">第10题：ERP系统</el-menu-item>
-          <el-menu-item index="/eleven">第11题：实时Web系统</el-menu-item>
-          <el-menu-item index="/twelve">第12题：构建程序图</el-menu-item>
-          <el-menu-item index="/thirteen">第13题：销售系统</el-menu-item>
+          <el-menu-item index="/two">第3题：销售管理系统</el-menu-item>
+          <el-menu-item index="/four">第5题：讨论</el-menu-item>
+          <el-menu-item index="/seven">第8题：实时系统</el-menu-item>
+          <el-menu-item index="/ten">第13题：ERP系统</el-menu-item>
+          <el-menu-item index="/eleven">第14题：实时Web系统</el-menu-item>
+          <el-menu-item index="/nine">第15题：ATM机</el-menu-item>
+          <el-menu-item index="/twelve">第16题：构建程序图</el-menu-item>
+          <el-menu-item index="/thirteen">第17题：销售系统</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
 
@@ -50,11 +50,11 @@
           <el-menu-item index="/four">集成测试</el-menu-item>
           <el-menu-item index="/seven">回归测试</el-menu-item>
           <el-menu-item index="/nine">系统测试</el-menu-item>
-        
+
         </el-menu-item-group>
       </el-submenu>
 
-      
+
       <!-- <el-menu-item index="2">
         <i class="el-icon-menu"></i>
         <span slot="title">导航二</span>
